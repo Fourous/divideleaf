@@ -28,10 +28,19 @@ def grayhandle(str):
 def binaryhandle(str):
     img=cv.imread(str)
     gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-    print(str)
     ret,binary=cv.threshold(gray, 0, 255, cv.THRESH_OTSU)
+    print(binary.shape)
+    '''
+    for i in  range(binary.shape[0]):
+        for j in range(binary.shape[1]):
+            if binary[i][j]==0:
+                binary[i][j]=255;
+            else:
+                binary[i][j] = 0;
+    cv.namedWindow('binary',0)
     cv.imshow('binary',binary);
     cv.waitKey(0)
+    '''
     return binary;
 
 #gamma校正
