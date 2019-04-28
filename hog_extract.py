@@ -85,7 +85,11 @@ def around(str):
     original = cv.imread(str)
     img = edgeline(pre.binaryhandle(str))
     contours, hierarchy = cv.findContours(img, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+    print(contours)
+    print(len(contours))
     cv.drawContours(original, contours[2], -1, (0, 0, 255), 3)
+    #cv.drawContours(original, contours[0], -1, (0, 0, 255), 3)
+    #cv.drawContours(original, contours[1], -1, (0, 0, 255), 3)
     #cv.namedWindow('img', 0)
     #cv.imshow('img', original)
     #cv.waitKey(0)
@@ -244,4 +248,3 @@ Todo
     return [CP,CA,F,C,N,R,PRP,e]
 #toge=around('image/test.jpg')
 #print(toge.shape)
-print(calaround('image/test.jpg'))
