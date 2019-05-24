@@ -62,21 +62,34 @@ def feature_computer(p):
     return Asm, Con, -Eng, Idm
 
 
-def test(image_name):
-    img = cv2.imread(image_name)
-    try:
-        img_shape = img.shape
-    except:
-        print
-        'imread error'
-        return
-#双斜杠表示整数除法
-    img = cv2.resize(img, (img_shape[1]//2, img_shape[0]//2), interpolation=cv2.INTER_CUBIC)
-    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    glcm_0 = getGlcm(img_gray, 1, 0)
-    # glcm_1=getGlcm(src_gray, 0,1)
-    # glcm_2=getGlcm(src_gray, 1,1)
-    # glcm_3=getGlcm(src_gray, -1,1)
-    asm, con, eng, idm = feature_computer(glcm_0)
-    return [asm, con, eng, idm]
+# def test(image_name):
+#     img = cv2.imread(image_name)
+#     try:
+#         img_shape = img.shape
+#     except:
+#         print
+#         'imread error'
+#         return
+# #双斜杠表示整数除法
+#     img = cv2.resize(img, (img_shape[1]//2, img_shape[0]//2), interpolation=cv2.INTER_CUBIC)
+#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     glcm_0 = getGlcm(img_gray, 1, 0)
+#     glcm_1=getGlcm(img_gray, 0, 1)
+#     glcm_2=getGlcm(img_gray, 1, 1)
+#     glcm_3=getGlcm(img_gray, -1, 1)
+#     asm0, con0, eng0, idm0 = feature_computer(glcm_0)
+#     asm1, con1, eng1, idm1 = feature_computer(glcm_1)
+#     asm2, con2, eng2, idm2 = feature_computer(glcm_2)
+#     asm3, con3, eng3, idm3 = feature_computer(glcm_3)
+#     return [asm0, con0, eng0, idm1, asm1, con1, eng1, idm2, asm2, con2, eng2, idm2, asm3, con3, eng3, idm3]
 
+def glcminthis(img_gray):
+    glcm_0 = getGlcm(img_gray, 1, 0)
+    glcm_1 = getGlcm(img_gray, 0, 1)
+    glcm_2 = getGlcm(img_gray, 1, 1)
+    glcm_3 = getGlcm(img_gray, 1, 2)
+    asm0, con0, eng0, idm0 = feature_computer(glcm_0)
+    asm1, con1, eng1, idm1 = feature_computer(glcm_1)
+    asm2, con2, eng2, idm2 = feature_computer(glcm_2)
+    asm3, con3, eng3, idm3 = feature_computer(glcm_3)
+    return [asm0, con0, eng0, idm1, asm1, con1, eng1, idm2, asm2, con2, eng2, idm2, asm3, con3, eng3, idm3]

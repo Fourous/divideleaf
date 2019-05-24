@@ -1,5 +1,6 @@
 '''
 Todo 主成分降维
+这里只是输入了最后融合得12维特征还需要增，不过先看看效果做出对比性
 '''
 import os
 import numpy as np

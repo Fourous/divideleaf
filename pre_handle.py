@@ -54,5 +54,12 @@ def gammahandle(str):
     cv.waitKey(0)
     return;
 
-
+#print(grayhandle('image/test.jpg'));
+#cv.imshow('gray',grayhandle('image/test.jpg'));
+#cv.waitKey(0);
+if __name__ == "__main__":
+    cv.namedWindow("gray", 0)
+    # cv.resizeWindow("gray", 640, 480);
+    cv.imshow('gray',binaryhandle('sone.tif'));
+    cv.waitKey(0);
 
